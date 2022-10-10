@@ -5,21 +5,12 @@ export const getCityList = async (req: Request, res: Response) => {
   const events = await getAll()
   res.send({
     success: true,
-    message: 'Here are all events',
+    message: 'Here are list of cities ',
     data: events,
   })
 }
 
-export const getAllEvents = async (req: Request, res: Response) => {
-  const events = await getAll()
-  res.send({
-    success: true,
-    message: 'Here are all events',
-    data: events,
-  })
-}
-
-export const getOneCityEvents = async (req: Request, res: Response) => {
+export const getCityEvents = async (req: Request, res: Response) => {
   try {
     const {c: category, t: timeFrame, p: page, city, lat: latitude, lon: longitude} = req.query
 
@@ -43,6 +34,5 @@ export const getOneCityEvents = async (req: Request, res: Response) => {
 
 export default {
   getCityList,
-  getAllEvents,
-  getOneCityEvents,
+  getCityEvents,
 }
