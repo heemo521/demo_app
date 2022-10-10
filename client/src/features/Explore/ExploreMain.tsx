@@ -29,7 +29,8 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = ({city, c, t, p}) => {
   // load the loading image and using a state that will be update inside the
   return (
     <div style={{color: 'white', fontSize: '2rem'}}>
-      <ExploreLoading isLoaded={!!eventList.length} />
+      <ExploreLoading />
+      {/* <ExploreBody /> */}
       {/* <div>Explore {city}</div>
       <div>Explore {c}</div>
       <div>Explore {t}</div>

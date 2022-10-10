@@ -1,4 +1,5 @@
 import React, {useState, useEffect, FunctionComponent} from 'react'
+import Confetti from 'components/utils/Confetti'
 import {Loading_Msgs} from './utils/loadMessage'
 import ProgressBar from '@ramonak/react-progress-bar'
 
@@ -21,6 +22,7 @@ const ExploreLoading: FunctionComponent<{}> = () => {
   // Confetti here
   return (
     <>
+      <Confetti />
       <div className='Explore-loading'>
         <div>{selectedMsg}</div>
         <ProgressBar
