@@ -19,9 +19,14 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = ({city, c, t, p}) => {
     if (city === 'near') {
       // TODO: get coordinates and set coords
     }
-    void getCityEvents().then(res => {
-      console.log(res.data)
-    })
+    void getCityEvents()
+      .then(res => {
+        const {success, message, data} = res.data
+        if (!success) throw new Error('failed to get data ' + message)
+
+        setEventList(data)
+      })
+      .catch(err => alert(err.message))
   }, [city])
 
   const getCityEvents = async () => {
