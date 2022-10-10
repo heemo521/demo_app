@@ -73,6 +73,7 @@ $folsom: 'Folsom', arial;
 :after,
 :before {
   box-sizing: border-box !important;
+  outline: 1px solid red !important;
 }
 
 html,
@@ -105,5 +106,12 @@ body {
 /*****                          CitySelector                        *****/
 /************************************************************************/
 .CitySelector {
-  color: $white;
+  background: $black;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
