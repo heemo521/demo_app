@@ -12,7 +12,11 @@ const Explore: FunctionComponent = () => {
   const p = searchParams.get('p')
 
   useEffect(() => {
-    if (!city) setSearchParams('?c=popular&t=week&p=1&city=')
+    if (!city) {
+      setSearchParams('?c=popular&t=week&p=1&city=')
+      //navigate to CitySelector Page
+    } else {
+    }
     console.log('city name is ' + city)
     console.log('c name is' + c)
     console.log('t name is ' + t)
@@ -20,7 +24,7 @@ const Explore: FunctionComponent = () => {
   }, [])
 
   //   if (!city) return null // navigate to cityselector
-  return <div style={{color: 'white', fontSize: '2rem'}}>Explore</div>
+  return city ? <div style={{color: 'white', fontSize: '2rem'}}>Explore</div> : <CitySelector />
 }
 
 export default Explore
