@@ -12,6 +12,7 @@ const Explore: FunctionComponent = () => {
   const p = Number(searchParams.get('p')) || 1
 
   useEffect(() => {
+    console.log('HEre is the queries' + ' t' + t + 'p' + p + 'c' + c + 'city' + city)
     if (!city) {
       setSearchParams('?c=popular&t=week&p=1&city=')
     } else {

@@ -25,22 +25,22 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = ({city, c, t, p}) => {
   })
 
   useEffect(() => {
-    if (city === 'near') {
-      // TODO: get coordinates and set coords
+    if (city === 'near' && eventList.length === 0) {
       if (!isGeolocationAvailable) {
         alert('Your browser does not support geolocation')
       } else if (!isGeolocationEnabled) {
         alert('Geolocation is not enabled')
       }
-      alert('Getting your coordinates!')
-
       const [lat, lng] = [coords?.latitude, coords?.longitude]
 
-      console.log(lat, lng)
       void getCityEvents(lat, lng)
       return
     }
     void getCityEvents()
+  }, [city, coords])
+
+  const getCityEvents = async (lat = 0, lng = 0) =>
+    axios(`http://localhost:5000/v1/events/?category=popular&t=${t}&p=${p}&city=${city}&lat=${lat}&lng=${lng}`)
       .then(res => {
         const {success, message, data} = res.data
         if (!success) throw new Error('failed to get data ' + message)
@@ -48,17 +48,13 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = ({city, c, t, p}) => {
         setEventList(data)
       })
       .catch(err => alert(err.message))
-  }, [city])
-
-  const getCityEvents = async (lat = 0, lng = 0) =>
-    axios(`http://localhost:5000/v1/events/?category=popular&t=${t}&p=${p}&city=${city}&lat=${lat}&lng=${lng}`)
 
   // load the loading image and using a state that will be update inside the
   return (
     <div style={{color: 'white', fontSize: '2rem'}}>
       <ExploreLoading isLoaded={isLoaded} />
       <ExploreCover />
-      <ExploreBody eventList={eventList} />
+      <ExploreBody eventList={eventList} t={t} />
       <BackButton backURL={'/explore?c=popular&t=week&p=1&city='} />
     </div>
   )

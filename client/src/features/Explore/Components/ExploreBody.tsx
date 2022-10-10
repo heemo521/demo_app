@@ -3,10 +3,10 @@ import ExploreEvents from './ExploreEvents'
 import ExploreNav from './ExploreNav'
 import {Events} from './Types/APIResponsesTypes'
 
-const ExploreBody: FunctionComponent<{eventList: Events[]}> = ({eventList}) => (
+const ExploreBody: FunctionComponent<{eventList: Events[]; t: string}> = ({eventList, t}) => (
   <div className='Explore-body'>
     <div className='Explore-body-main'>
-      <ExploreNav />
+      <ExploreNav t={t} />
       <ExploreEvents eventList={eventList} />
     </div>
   </div>

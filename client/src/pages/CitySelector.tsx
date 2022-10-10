@@ -1,7 +1,7 @@
 import CitySelectorBody from 'features/CitySelector/CitySelectorBody'
 import React from 'react'
 
-import Confetti from '../components/utils/Confetti'
+import Confetti from '../components/ui/Confetti'
 
 interface ICitySelectorProps {}
 

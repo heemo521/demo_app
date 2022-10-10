@@ -1,12 +1,19 @@
-import React from 'react'
+import React, {FunctionComponent} from 'react'
+import {Link} from 'react-router-dom'
 
-export default function ExploreNav({}) {
+const ExploreNav: FunctionComponent<{t: string}> = ({t}) => {
   return (
     <div className='Explore-body-main-nav'>
       <div className='Explore-body-main-nav-right'>
-        <div className='selected'>This Week</div>
-        <div className=''>Today</div>
+        <div className={t === 'week' ? 'selected' : undefined}>
+          <Link to=''>This Week </Link>
+        </div>
+        <div className={t === 'day' ? 'selected' : undefined}>
+          <Link to=''>Today </Link>
+        </div>
       </div>
     </div>
   )
 }
+
+export default ExploreNav

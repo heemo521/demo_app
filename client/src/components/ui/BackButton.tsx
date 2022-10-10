@@ -6,16 +6,12 @@ export interface IBackButtonProps {
 }
 
 const BackButton: FunctionComponent<IBackButtonProps> = ({backURL}) => {
-  const BackButtonHandler = () => {
-    console.log('testing!!!')
-  }
   return (
     <Link to={backURL}>
       <img
         className='Explore-back'
         src='https://posh-b2.s3.us-east-2.amazonaws.com/left-arrow-in-circular-button-black-symbol.svg'
         alt='Back'
-        onClick={BackButtonHandler}
       />
     </Link>
   )
