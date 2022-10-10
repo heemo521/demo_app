@@ -11,15 +11,6 @@ const CitySelectorBody: FunctionComponent = () => {
   const [citiesList, setCitiesList] = useState([] as ICitySelector[])
 
   useEffect(() => {
-    // axios('https://localhost:5000/v1/events/cities')
-    //   .then(res => {
-    //     console.log(res.data)
-    //     // TODO: set the list when received cities
-
-    //     // setCitiesList(res.data)
-    //   })
-    //   .catch(err => console.error(err))
-
     const Cities: ICitySelector[] = [
       {city: 'new york', key: 'nyc'},
       {city: 'miami', key: 'mia'},
@@ -47,3 +38,12 @@ const CitySelectorBody: FunctionComponent = () => {
 }
 
 export default CitySelectorBody
+
+// axios('https://localhost:5000/v1/events/cities')
+//   .then(res => {
+//     console.log(res.data)
+//     // TODO: set the list when received cities
+
+//     // setCitiesList(res.data)
+//   })
+//   .catch(err => console.error(err))
