@@ -4,7 +4,6 @@ import {IExploreMainProps} from '../ExploreMain'
 
 const ExploreNav: FunctionComponent<IExploreMainProps> = props => {
   const {c, t, p, city, setSearchParams} = props
-  //setSearchParams: SetURLSearchParams
 
   const onTabClickHandler = (filter: string) => {
     setSearchParams(`?c=${c}&t=${filter}&p=${p}&city=${city}`)

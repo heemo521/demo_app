@@ -14,18 +14,26 @@ export const getCityEvents = async (req: Request, res: Response) => {
   try {
     //    /?category=popular&t=${t}&p=${p}&city=${city}&lat=${lat}&lng=${lng}
     const events = await getAll()
-    res.send({
-      success: true,
-      message: 'Here are list of cities ',
-      data: events,
-    })
-    return
-    const {c: category, t: timeFrame, p: page, city, lat: latitude, lon: longitude} = req.query
+    const {category, t: timeFrame, p: page, city, lat: latitude, lng: longitude} = req.query
 
     console.log(category, timeFrame, page, latitude, longitude, city)
+
     if (!timeFrame || !city) throw new Error('Please provide a city and or time frame')
 
-    if (city === 'near') return res.send({location: 'near', latitude, longitude})
+    if (city === 'near') {
+      if (!latitude || !longitude) throw new Error('Allow location coordinates')
+
+      return res.send({
+        success: true,
+        message: 'Success! Here are events near you',
+        data: events,
+        // data: {location: 'near', latitude, longitude},
+      })
+    }
+
+    events.forEach(event => {
+      console.log(event.location.coordinates)
+    })
 
     res.send({
       success: true,
@@ -35,8 +43,7 @@ export const getCityEvents = async (req: Request, res: Response) => {
   } catch (err) {
     res.status(404).send({
       success: false,
-      message: 'Not found',
-      errMsg: err.message,
+      message: err,
     })
   }
 }
