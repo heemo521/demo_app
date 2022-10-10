@@ -3,6 +3,8 @@ import axios from 'axios'
 import ExploreLoading from './Components/ExploreLoading'
 import ExploreCover from './Components/ExploreCover'
 import ExploreBody from './Components/ExploreBody'
+import ExploreNav from './Components/ExploreNav'
+import BackButton from './utils/BackButton'
 export interface IExploreMainProps {
   city: string | null
   c: string
@@ -17,15 +19,15 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = ({city, c, t, p}) => {
     if (city === 'near') {
       // TODO: get coordinates and set coords
     }
-    void getCityEvents()
-  }, [])
+    void getCityEvents().then(res => {})
+  }, [city])
 
   const getCityEvents = async () => {
     const [lat, lng] = coords
 
     console.log('hello getting city events')
 
-    axios(`http://localhost:5000/v1/events/?category=popular&t=${t}&p=${p}&city=${city}&lat=${lat}&lng=${lng}`)
+    return axios(`http://localhost:5000/v1/events/?category=popular&t=${t}&p=${p}&city=${city}&lat=${lat}&lng=${lng}`)
   }
 
   // load the loading image and using a state that will be update inside the
@@ -35,6 +37,7 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = ({city, c, t, p}) => {
       <ExploreNav />
       <ExploreCover />
       <ExploreBody />
+      <BackButton backURL={'/explore?c=popular&t=week&p=1&city='} />
     </div>
   )
 }

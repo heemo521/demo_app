@@ -11,7 +11,7 @@ import '../src/assets/webfonts/Nunito/Nunito-Black.ttf'
 
 const App: FunctionComponent = props => (
   <Routes>
-    <Route path='/explore*' element={<Explore />} />
+    <Route path='/explore/*' element={<Explore />} />
     <Route path='*' element={<NotFoundPage />} />
   </Routes>
 )
