@@ -1,6 +1,8 @@
 import React, {FunctionComponent, useEffect, useState} from 'react'
 import axios from 'axios'
-import ExploreLoading from './ExploreLoading'
+import ExploreLoading from './Components/ExploreLoading'
+import ExploreCover from './Components/ExploreCover'
+import ExploreBody from './Components/ExploreBody'
 export interface IExploreMainProps {
   city: string | null
   c: string
@@ -30,11 +32,8 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = ({city, c, t, p}) => {
   return (
     <div style={{color: 'white', fontSize: '2rem'}}>
       <ExploreLoading />
-      {/* <ExploreBody /> */}
-      {/* <div>Explore {city}</div>
-      <div>Explore {c}</div>
-      <div>Explore {t}</div>
-      <div>Explore {p}</div> */}
+      <ExploreCover />
+      <ExploreBody />
     </div>
   )
 }
