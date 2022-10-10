@@ -1,19 +1,19 @@
-import CitySelector from 'pages/CitySelector'
+import Explore from './pages/Explore'
+
+import NotFoundPage from './components/utils/NotFoundPage'
+
 import React, {FunctionComponent} from 'react'
 
-import {Route} from 'react-router'
-import {BrowserRouter, Routes} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 
 import './assets/stylesheets/styles.scss'
 import '../src/assets/webfonts/Nunito/Nunito-Black.ttf'
 
 const App: FunctionComponent = props => (
-  <BrowserRouter>
-    <Routes>
-      <Route path='/explore?c=popular&t=week&p=1&city=' element={<CitySelector {...props} />} />
-      <Route path='/explore/*' element={<CitySelector {...props} />} />
-    </Routes>
-  </BrowserRouter>
+  <Routes>
+    <Route path='/explore*' element={<Explore />} />
+    <Route path='*' element={<NotFoundPage />} />
+  </Routes>
 )
 
 export default App

@@ -1,20 +1,26 @@
-import React from 'react'
+import React, {FunctionComponent, useEffect} from 'react'
+import CitySelector from 'pages/CitySelector'
 import {useSearchParams} from 'react-router-dom'
 
-type Props = {}
-
-const Explore = (props: Props) => {
+const Explore: FunctionComponent = () => {
   const [searchParams, setSearchParams] = useSearchParams()
   //posh.vip/explore?c=popular&t=week&p=1&city=
   //posh.vip/explore?c=popular&t=week&p=1&city=la
   const city = searchParams.get('city')
-
-  const q = searchParams.get('c')
-  const src = searchParams.get('t')
+  const c = searchParams.get('c')
+  const t = searchParams.get('t')
   const p = searchParams.get('p')
 
-  if (!city) return null // navigate to cityselector
-  return <div>Explore</div>
+  useEffect(() => {
+    if (!city) setSearchParams('?c=popular&t=week&p=1&city=')
+    console.log('city name is ' + city)
+    console.log('c name is' + c)
+    console.log('t name is ' + t)
+    console.log('p name is' + p)
+  }, [])
+
+  //   if (!city) return null // navigate to cityselector
+  return <div style={{color: 'white', fontSize: '2rem'}}>Explore</div>
 }
 
 export default Explore
