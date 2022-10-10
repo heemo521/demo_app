@@ -7,6 +7,7 @@ const ExploreLoading: FunctionComponent<{isLoaded: boolean}> = ({isLoaded}) => {
   const randomNumber = Math.floor(Math.random() * Loading_Msgs.length)
   const [selectedMsg, setSelectedMsg] = useState(Loading_Msgs[0])
   const [counter, setCounter] = useState(0)
+  const [returnNull, setReturnNull] = useState(false)
 
   useEffect(() => {
     setSelectedMsg(Loading_Msgs[randomNumber])
@@ -17,9 +18,18 @@ const ExploreLoading: FunctionComponent<{isLoaded: boolean}> = ({isLoaded}) => {
       setTimeout(() => {
         setCounter(counter + 1)
       }, 100)
+
+      if (isLoaded) {
+        setTimeout(() => {
+          console.log('it should work!')
+          setReturnNull(true)
+        }, 0)
+      }
     }
   }, [counter, isLoaded])
-  // Confetti here
+
+  if (returnNull) return null
+
   return (
     <>
       <Confetti />
