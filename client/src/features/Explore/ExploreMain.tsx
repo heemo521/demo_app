@@ -3,7 +3,7 @@ import axios from 'axios'
 import ExploreLoading from './Components/ExploreLoading'
 import ExploreCover from './Components/ExploreCover'
 import ExploreBody from './Components/ExploreBody'
-import ExploreNav from './Components/ExploreNav'
+
 import BackButton from '../../components/ui/BackButton'
 export interface IExploreMainProps {
   city: string | null
@@ -34,9 +34,8 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = ({city, c, t, p}) => {
   return (
     <div style={{color: 'white', fontSize: '2rem'}}>
       <ExploreLoading isLoaded={!!eventList.length} />
-      <ExploreNav />
       <ExploreCover />
-      <ExploreBody />
+      <ExploreBody eventList={eventList} />
       <BackButton backURL={'/explore?c=popular&t=week&p=1&city='} />
     </div>
   )
