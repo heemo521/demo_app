@@ -1,38 +1,11 @@
-import {Request, Response} from 'express'
-import {getAll} from '../../models/event'
+import {Router} from 'express'
+import controller from '../../controllers/events'
 
-export const getCityList = async (req: Request, res: Response) => {
-  const events = await getAll()
-  res.send({
-    success: true,
-    message: 'Here are list of cities ',
-    data: events,
-  })
-}
+const router = Router()
 
-export const getCityEvents = async (req: Request, res: Response) => {
-  try {
-    const {c: category, t: timeFrame, p: page, city, lat: latitude, lon: longitude} = req.query
+router.route('/cities').get(controller.getAllCities)
 
-    if (!timeFrame || !city) throw new Error('Please provide a city and or time frame')
+router.route('/').get(controller.getCityEvents)
+router.route('/all').get(controller.getAllEvents)
 
-    if (city === 'near') return res.send({location: 'near', latitude, longitude})
-
-    res.send({
-      success: true,
-      message: `Found events for city '${city}'`,
-      data: 'Fetched data',
-    })
-  } catch (err) {
-    res.status(404).send({
-      success: false,
-      message: 'Not found',
-      errMsg: err.message,
-    })
-  }
-}
-
-export default {
-  getCityList,
-  getCityEvents,
-}
+export default router
