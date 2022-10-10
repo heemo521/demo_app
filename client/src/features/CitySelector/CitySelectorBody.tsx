@@ -1,26 +1,35 @@
 import React, {FunctionComponent, useEffect, useState} from 'react'
+import {Link} from 'react-router-dom'
 
-interface ICitySelectorBodyProps {}
+interface ICitySelector {
+  city: string
+  key: string
+}
 
-const CitySelectorBody: React.FunctionComponent<ICitySelectorBodyProps> = props => {
-  const [citiesList, setCitiesList] = useState([] as string[])
-  const [selectedCity, setSelectedCity] = useState('')
+const CitySelectorBody: FunctionComponent = () => {
+  const [citiesList, setCitiesList] = useState([] as ICitySelector[])
 
   useEffect(() => {
-    const cities = ['new york', 'miami', 'los angeles', 'near me']
-    setCitiesList(cities)
+    const Cities: ICitySelector[] = [
+      {city: 'new york', key: 'nyc'},
+      {city: 'miami', key: 'mia'},
+      {city: 'los angeles', key: 'la'},
+      {city: 'near me', key: 'near'},
+    ]
+
+    setCitiesList(Cities)
   }, [])
 
   return (
     <div className='CitySelector-Body'>
-      <div>Where are you looking for experiences?</div>
-      <li>
-        {citiesList.map((city: string, i: number) => (
-          <ul className='city_city' key={i}>
-            {city}
-          </ul>
+      <div className='CitySelector-prompt'>Where are you looking for experiences?</div>
+      <ul className='CitySelector-cities'>
+        {citiesList.map((city: ICitySelector, i: number) => (
+          <li className='gold' key={i}>
+            <Link to={city.key}>{city.city}</Link>
+          </li>
         ))}
-      </li>
+      </ul>
     </div>
   )
 }
