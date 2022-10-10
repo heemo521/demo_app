@@ -2,14 +2,23 @@ import React, {FunctionComponent} from 'react'
 import ExploreEvents from './ExploreEvents'
 import ExploreNav from './ExploreNav'
 import {Events} from './Types/APIResponsesTypes'
+import {IExploreMainProps} from '../ExploreMain'
 
-const ExploreBody: FunctionComponent<{eventList: Events[]; t: string}> = ({eventList, t}) => (
-  <div className='Explore-body'>
-    <div className='Explore-body-main'>
-      <ExploreNav t={t} />
-      <ExploreEvents eventList={eventList} />
+interface IExploreBodyProps extends IExploreMainProps {
+  eventList: Events[]
+}
+
+const ExploreBody: FunctionComponent<IExploreBodyProps> = props => {
+  const {eventList} = props
+
+  return (
+    <div className='Explore-body'>
+      <div className='Explore-body-main'>
+        <ExploreNav {...props} />
+        <ExploreEvents eventList={eventList} />
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 export default ExploreBody

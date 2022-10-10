@@ -11,9 +11,12 @@ export interface IExploreMainProps {
   c: string
   t: string
   p: number
+  setSearchParams: Function
 }
 
-const ExploreMain: FunctionComponent<IExploreMainProps> = ({city, c, t, p}) => {
+const ExploreMain: FunctionComponent<IExploreMainProps> = props => {
+  const {city, c, t, p} = props
+
   const [eventList, setEventList] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
   // const [coords, setCoords] = useState([] as number[])
@@ -54,7 +57,7 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = ({city, c, t, p}) => {
     <div style={{color: 'white', fontSize: '2rem'}}>
       <ExploreLoading isLoaded={isLoaded} />
       <ExploreCover />
-      <ExploreBody eventList={eventList} t={t} />
+      <ExploreBody eventList={eventList} {...props} />
       <BackButton backURL={'/explore?c=popular&t=week&p=1&city='} />
     </div>
   )

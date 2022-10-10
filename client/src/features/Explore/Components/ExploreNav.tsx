@@ -1,15 +1,23 @@
 import React, {FunctionComponent} from 'react'
-import {Link} from 'react-router-dom'
 
-const ExploreNav: FunctionComponent<{t: string}> = ({t}) => {
+import {IExploreMainProps} from '../ExploreMain'
+
+const ExploreNav: FunctionComponent<IExploreMainProps> = props => {
+  const {c, t, p, city, setSearchParams} = props
+  //setSearchParams: SetURLSearchParams
+
+  const onTabClickHandler = (filter: string) => {
+    setSearchParams(`?c=${c}&t=${filter}&p=${p}&city=${city}`)
+  }
+
   return (
     <div className='Explore-body-main-nav'>
       <div className='Explore-body-main-nav-right'>
-        <div className={t === 'week' ? 'selected' : undefined}>
-          <Link to=''>This Week </Link>
+        <div className={t === 'week' ? 'selected' : undefined} onClick={onTabClickHandler.bind(null, 'week')}>
+          This Week
         </div>
-        <div className={t === 'day' ? 'selected' : undefined}>
-          <Link to=''>Today </Link>
+        <div className={t === 'day' ? 'selected' : undefined} onClick={onTabClickHandler.bind(null, 'day')}>
+          Today
         </div>
       </div>
     </div>
