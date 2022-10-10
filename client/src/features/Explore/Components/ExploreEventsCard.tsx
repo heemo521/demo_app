@@ -1,9 +1,56 @@
-import React from 'react'
+import React, {FunctionComponent, useEffect, useState, useRef} from 'react'
 
-type Props = {}
+import useOnScreen from 'hooks/useOnScreen'
+import getLazyUrl from '../../utils/getLazyUrl'
 
-const ExploreEventsCard = (props: Props) => {
-  return <div>ExploreEventsCard</div>
+import {Events} from './Types/APIResponsesTypes'
+
+const ExploreEventsCard: FunctionComponent<{eventCard: Events}> = ({eventCard}) => {
+  const EventCardRef: any = useRef<HTMLDivElement>()
+
+  const [lazyImage, setLazyImage] = useState<string>('lazy-img')
+
+  const isVisible = useOnScreen<HTMLDivElement>(EventCardRef, 0.2)
+
+  const groupImage = getLazyUrl(
+    'https://res.cloudinary.com/djftxayyc/image/upload/c_scale,w_100/v1665257399/',
+    eventCard.groupAvi,
+  )
+  const eventImage = getLazyUrl(
+    'https://res.cloudinary.com/djftxayyc/image/upload/c_scale,w_100/v1665257399/',
+    eventCard.flyer,
+  )
+
+  useEffect(() => {
+    if (lazyImage.length === 0) return
+
+    EventCardRef.current.style.backgroundImage = `url(${eventCard.flyer})`
+  }, [])
+
+  useEffect(() => {
+    if (lazyImage.length === 0) return
+    if (isVisible) {
+      setLazyImage('')
+    }
+  }, [lazyImage, isVisible])
+
+  return (
+    <div
+      className={`EventCard ${lazyImage.length > 0 ? lazyImage : 'load'}`}
+      ref={EventCardRef}
+      style={{backgroundImage: `url(${eventImage})`}}>
+      <div className='EventCard-filter'></div>
+      <div className='EventCard-info'>
+        <div className='EventCard-date'>
+          <div className='EventCard-dotw'>Today</div>
+        </div>
+        <div>
+          <div className='EventCard-name'>{eventCard.name}</div>
+          <div className='EventCard-location'>{eventCard.venueName}</div>
+        </div>
+      </div>
+      <img className='EventCard-organizer' src={groupImage || ''} alt={eventCard.groupName} />
+    </div>
+  )
 }
-
-export default ExploreEventsCard
+export default ExploreListItem
