@@ -1,5 +1,5 @@
 import React, {FunctionComponent} from 'react'
-import ExploreEventsCard from './ExploreEventsCard'
+import ExploreEventsCard from './ExploreEventsItem'
 
 import {Events} from './Types/APIResponsesTypes'
 

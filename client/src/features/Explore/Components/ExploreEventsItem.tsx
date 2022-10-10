@@ -1,11 +1,13 @@
 import React, {FunctionComponent, useEffect, useState, useRef} from 'react'
 
 import useOnScreen from 'hooks/useOnScreen'
-import getLazyUrl from '../../utils/getLazyUrl'
+import {getLazyUrl} from '../utils/getLazyUrl'
 
 import {Events} from './Types/APIResponsesTypes'
 
-const ExploreEventsCard: FunctionComponent<{eventCard: Events}> = ({eventCard}) => {
+//TODO:  Add date!!!
+
+const ExploreEventsItem: FunctionComponent<{eventCard: Events}> = ({eventCard}) => {
   const EventCardRef: any = useRef<HTMLDivElement>()
 
   const [lazyImage, setLazyImage] = useState<string>('lazy-img')
@@ -53,4 +55,4 @@ const ExploreEventsCard: FunctionComponent<{eventCard: Events}> = ({eventCard}) 
     </div>
   )
 }
-export default ExploreListItem
+export default ExploreEventsItem
