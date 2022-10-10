@@ -219,7 +219,7 @@ a:active {
 }
 
 .Explore-fadeInAnimation {
-  animation: fadeInAnimation 5s;
+  animation: fadeInAnimation 3s ease;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -228,6 +228,7 @@ a:active {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }

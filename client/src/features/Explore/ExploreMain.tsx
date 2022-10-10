@@ -56,14 +56,14 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = props => {
 
   // load the loading image and using a state that will be update inside the
   return (
-    <div>
+    <>
       <ExploreLoading isLoaded={isLoaded} />
       <div className={`Explore ${eventList.length > 0 ? 'Explore-fadeInAnimation' : ''}`}>
         <ExploreCover />
         <ExploreBody eventList={eventList} {...props} />
         <BackButton backURL={'/explore?c=popular&t=week&p=1&city='} />
       </div>
-    </div>
+    </>
   )
 }
 
