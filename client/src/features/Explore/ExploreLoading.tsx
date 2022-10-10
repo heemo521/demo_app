@@ -4,7 +4,7 @@ import ProgressBar from '@ramonak/react-progress-bar'
 
 const ExploreLoading: FunctionComponent<{isLoaded: boolean}> = ({isLoaded}) => {
   const randomNumber = Math.floor(Math.random() * Loading_Msgs.length)
-  const [selectedMsg, setSelectedMsg] = useState('Finding the best events for you')
+  const [selectedMsg, setSelectedMsg] = useState(Loading_Msgs[0])
   const [counter, setCounter] = useState(0)
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const ExploreLoading: FunctionComponent<{isLoaded: boolean}> = ({isLoaded}) => {
     if (counter <= 100 && !isLoaded) {
       setTimeout(() => {
         setCounter(counter + 1)
-      })
+      }, 100)
     }
   }, [counter, isLoaded])
   // Confetti here
