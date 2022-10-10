@@ -75,6 +75,7 @@ $folsom: 'Folsom', arial;
   box-sizing: border-box !important;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 html,
@@ -85,7 +86,6 @@ body {
   overflow-x: hidden;
   background: $background-black;
   scroll-behavior: smooth;
-  list-style: none;
 }
 
 ::-webkit-scrollbar {
@@ -147,7 +147,7 @@ body {
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    > ul {
+    > li {
       color: $primary;
     }
     > div:nth-child(1n) {
@@ -156,31 +156,15 @@ body {
   }
 }
 
-.CitySelector-cities > ul.gold {
+a,
+a:visited,
+a:active {
+  color: $primary;
+  text-decoration: none;
+}
+
+.CitySelector-cities > li.gold {
   border: 1px solid #fc0;
   box-shadow: 0 0 10px -2px #fc0, 0px 0px 10px #fc0 inset;
   color: #fc0;
 }
-
-// .CitySelector-cities > ul {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   gap: 10px;
-//   width: 100%;
-//   height: 70px;
-//   border: 1px solid #0cf;
-//   box-shadow: 0 0 10px -2px #0cf, 0px 0px 10px #0cf inset;
-//   border-radius: 10px;
-//   text-transform: uppercase;
-//   color: #0cf;
-//   font-family: Nunito;
-//   font-weight: 500;
-//   letter-spacing: 3px;
-//   font-size: 14px;
-//   cursor: pointer;
-//   transition: 0.2s;
-//   animation: fadeInRightB 2s forwards ease-out;
-//   opacity: 0;
-//   transform: translateY(200px);
-// }
