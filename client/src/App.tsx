@@ -10,7 +10,7 @@ import '../src/assets/webfonts/Nunito/Nunito-Black.ttf'
 const App: FunctionComponent = props => (
   <BrowserRouter>
     <Routes>
-      <Route path='/' element={<CitySelector {...props} />} />
+      <Route path='/explore?c=popular&t=week&p=1&city=' element={<CitySelector {...props} />} />
       <Route path='/explore/*' element={<CitySelector {...props} />} />
     </Routes>
   </BrowserRouter>
