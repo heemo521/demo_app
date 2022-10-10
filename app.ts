@@ -4,5 +4,9 @@ import cors from 'cors'
 const app = express()
 app.use(cors())
 
-export default app
+// GET /
+app.get('/', (req, res) => {
+  res.send('Hello World!!!')
+})
 
+export default app
