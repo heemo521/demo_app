@@ -1,11 +1,10 @@
 import {Router} from 'express'
-import controller from '../../controllers/events'
+import {getCityList, getCityEvents} from '../../controllers/events'
 
 const router = Router()
 
-router.route('/cities').get(controller.getAllCities)
+router.route('/cities').get(getCityList)
 
-router.route('/').get(controller.getCityEvents)
-router.route('/all').get(controller.getAllEvents)
+router.route('/').get(getCityEvents)
 
 export default router

@@ -1,5 +1,5 @@
 import {Request, Response} from 'express'
-import {getAll} from '../../models/event'
+import {getAll} from '../../models/events'
 
 export const getCityList = async (req: Request, res: Response) => {
   const events = await getAll()
@@ -12,6 +12,8 @@ export const getCityList = async (req: Request, res: Response) => {
 
 export const getCityEvents = async (req: Request, res: Response) => {
   try {
+    //    /?category=popular&t=${t}&p=${p}&city=${city}&lat=${lat}&lng=${lng}
+
     const {c: category, t: timeFrame, p: page, city, lat: latitude, lon: longitude} = req.query
 
     if (!timeFrame || !city) throw new Error('Please provide a city and or time frame')

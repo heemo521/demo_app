@@ -19,14 +19,13 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = ({city, c, t, p}) => {
     if (city === 'near') {
       // TODO: get coordinates and set coords
     }
-    void getCityEvents().then(res => {})
+    void getCityEvents().then(res => {
+      console.log(res.data)
+    })
   }, [city])
 
   const getCityEvents = async () => {
     const [lat, lng] = coords
-
-    console.log('hello getting city events')
-
     return axios(`http://localhost:5000/v1/events/?category=popular&t=${t}&p=${p}&city=${city}&lat=${lat}&lng=${lng}`)
   }
 

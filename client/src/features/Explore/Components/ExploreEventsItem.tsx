@@ -24,16 +24,11 @@ const ExploreEventsItem: FunctionComponent<{eventCard: Events}> = ({eventCard}) 
   )
 
   useEffect(() => {
-    if (lazyImage.length === 0) return
-
-    EventCardRef.current.style.backgroundImage = `url(${eventCard.flyer})`
+    if (lazyImage.length > 0) EventCardRef.current.style.backgroundImage = `url(${eventCard.flyer})`
   }, [])
 
   useEffect(() => {
-    if (lazyImage.length === 0) return
-    if (isVisible) {
-      setLazyImage('')
-    }
+    if (lazyImage.length > 0 && isVisible) setLazyImage('')
   }, [lazyImage, isVisible])
 
   return (
