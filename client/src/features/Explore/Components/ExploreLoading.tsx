@@ -3,7 +3,7 @@ import Confetti from 'components/utils/Confetti'
 import {Loading_Msgs} from '../utils/loadMessage'
 import ProgressBar from '@ramonak/react-progress-bar'
 
-const ExploreLoading: FunctionComponent<{}> = () => {
+const ExploreLoading: FunctionComponent<{isLoaded: boolean}> = ({isLoaded}) => {
   const randomNumber = Math.floor(Math.random() * Loading_Msgs.length)
   const [selectedMsg, setSelectedMsg] = useState(Loading_Msgs[0])
   const [counter, setCounter] = useState(0)
@@ -13,12 +13,12 @@ const ExploreLoading: FunctionComponent<{}> = () => {
   }, [])
 
   useEffect(() => {
-    if (counter <= 100) {
+    if (counter <= 100 && !isLoaded) {
       setTimeout(() => {
         setCounter(counter + 1)
       }, 100)
     }
-  }, [counter])
+  }, [counter, isLoaded])
   // Confetti here
   return (
     <>

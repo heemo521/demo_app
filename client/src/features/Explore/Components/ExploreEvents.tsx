@@ -1,7 +1,7 @@
 import React, {FunctionComponent} from 'react'
 import ExploreEventsCard from './ExploreEventsCard'
 
-import {Events} from './APIResponsesTypes'
+import {Events} from './Types/APIResponsesTypes'
 
 const ExploreEvents: FunctionComponent<{eventList: Events[]}> = ({eventList}) => {
   return (

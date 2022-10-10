@@ -31,7 +31,8 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = ({city, c, t, p}) => {
   // load the loading image and using a state that will be update inside the
   return (
     <div style={{color: 'white', fontSize: '2rem'}}>
-      <ExploreLoading />
+      <ExploreLoading isLoaded={!!eventList.length} />
+      <ExploreNav />
       <ExploreCover />
       <ExploreBody />
     </div>
