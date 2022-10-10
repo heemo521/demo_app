@@ -24,6 +24,7 @@
     "@babel/runtime": "^7.14.6",
     "@brainhubeu/react-carousel": "^2.0.4",
     "@date-io/moment": "1.x",
+    "@ramonak/react-progress-bar": "^5.0.2",
     "@svgr/webpack": "^5.5.0",
     "@types/lodash": "^4.14.170",
     "@types/react": "^17.0.39",
