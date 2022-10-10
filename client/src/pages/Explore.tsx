@@ -14,7 +14,7 @@ const Explore: FunctionComponent = () => {
   const props = {city, c, t, p, setSearchParams}
 
   useEffect(() => {
-    console.log('HEre is the queries' + ' t' + t + 'p' + p + 'c' + c + 'city' + city)
+    console.log('Here is the queries' + ' t' + t + 'p' + p + 'c' + c + 'city' + city)
     if (!city) {
       setSearchParams('?c=popular&t=week&p=1&city=')
     } else {
