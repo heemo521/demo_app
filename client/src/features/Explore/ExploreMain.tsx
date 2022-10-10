@@ -4,7 +4,7 @@ import ExploreLoading from './Components/ExploreLoading'
 import ExploreCover from './Components/ExploreCover'
 import ExploreBody from './Components/ExploreBody'
 import ExploreNav from './Components/ExploreNav'
-import BackButton from './utils/BackButton'
+import BackButton from '../../components/ui/BackButton'
 export interface IExploreMainProps {
   city: string | null
   c: string

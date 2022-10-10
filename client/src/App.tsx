@@ -1,6 +1,6 @@
 import Explore from './pages/Explore'
 
-import NotFoundPage from './components/utils/NotFoundPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 import React, {FunctionComponent} from 'react'
 
