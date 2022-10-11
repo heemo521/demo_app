@@ -61,9 +61,9 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = props => {
     <>
       <ExploreLoading isLoaded={isLoaded} />
       <div className={`Explore ${eventList.length > 0 ? 'Explore-fadeInAnimation' : ''}`}>
+        <BackButton backURL={'/explore?c=popular&t=week&p=1&city='} />
         <ExploreCover />
         <ExploreBody eventList={eventList} {...props} />
-        <BackButton backURL={'/explore?c=popular&t=week&p=1&city='} />
       </div>
     </>
   )

@@ -30,7 +30,7 @@ const ExploreLoading: FunctionComponent<{isLoaded: boolean}> = ({isLoaded}) => {
   return (
     <>
       <Confetti stop={returnNull} />
-      <div className='Explore-loading'>
+      <div className='ExploreLoader'>
         <div>{selectedMsg}</div>
         <ProgressBar
           completed={counter}

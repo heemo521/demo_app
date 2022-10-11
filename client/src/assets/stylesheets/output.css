@@ -100,7 +100,7 @@ body {
 /*****                          CitySelector                        *****/
 /************************************************************************/
 .CitySelector {
-  background: #000;
+  background: #101113;
   height: 100vh;
   width: 100vw;
   padding: 20px;
@@ -125,7 +125,7 @@ body {
 }
 
 .CitySelector-prompt {
-  color: #fc0;
+  color: #ffcc00;
   text-transform: uppercase;
   font-family: Circular Std;
   font-weight: 200;
@@ -149,11 +149,11 @@ body {
   justify-content: center;
   align-items: center;
   height: 70px;
-  border: 1px solid #0cf;
-  box-shadow: 0 0 10px -2px #0cf, 0px 0px 10px #0cf inset;
+  border: 1px solid #00ccff;
+  box-shadow: 0 0 10px -2px #00ccff, 0px 0px 10px #00ccff inset;
   border-radius: 10px;
   text-transform: uppercase;
-  color: #0cf;
+  color: #00ccff;
   font-family: Nunito;
   font-weight: 500;
   letter-spacing: 3px;
@@ -164,15 +164,15 @@ body {
   opacity: 0;
 }
 .city:hover {
-  box-shadow: 0 0 30px -2px #0cf, 0px 0px 10px #0cf inset;
+  box-shadow: 0 0 30px -2px #00ccff, 0px 0px 10px #00ccff inset;
 }
 .city.gold {
-  border: 1px solid #fc0;
-  box-shadow: 0 0 10px -2px #fc0, 0px 0px 10px #fc0 inset;
-  color: #fc0;
+  border: 1px solid #ffcc00;
+  box-shadow: 0 0 10px -2px #ffcc00, 0px 0px 10px #ffcc00 inset;
+  color: #ffcc00;
 }
 .city.gold:hover {
-  box-shadow: 0 0 30px -2px #fc0, 0px 0px 10px #fc0 inset;
+  box-shadow: 0 0 30px -2px #ffcc00, 0px 0px 10px #ffcc00 inset;
 }
 
 .city:nth-child(1n) {
@@ -199,36 +199,6 @@ body {
 /************************************************************************/
 /*****                            Explore                           *****/
 /************************************************************************/
-.Explore-back {
-  position: absolute;
-  opacity: 0.6;
-  top: 40px;
-  left: 40px;
-  width: 60px;
-  height: 60px;
-  transition: 0.2s;
-  cursor: pointer;
-}
-.Explore-back:hover, .Explore-back:active {
-  opacity: 1;
-}
-
-.Explore-loading {
-  color: #ffcc00;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  gap: 0.5em;
-  opacity: 0.5;
-  animation: fastInSlowFadeOutAnimation ease 1;
-}
-
-/************************************************************************/
-/*****                          ExploreCover                        *****/
-/************************************************************************/
 .Explore {
   display: flex;
   flex-direction: column;
@@ -237,13 +207,51 @@ body {
   overflow: hidden;
   opacity: 0;
 }
-
 .Explore-fadeInAnimation {
   animation: fadeInAnimation 3s ease;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
 
+.Explore-back {
+  position: absolute;
+  opacity: 0.6;
+  top: 40px;
+  left: 40px;
+  width: 60px;
+  height: 60px;
+  transition: 0.2s;
+  z-index: 1;
+  cursor: pointer;
+}
+.Explore-back:hover, .Explore-back:active {
+  opacity: 1;
+}
+
+/************************************************************************/
+/*****                      ExploreLoader                           *****/
+/************************************************************************/
+.ExploreLoader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #101113;
+  text-align: center;
+  color: #ffcc00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5em;
+  opacity: 0.5;
+  animation: fastInSlowFadeOutAnimation ease 1;
+}
+
+/************************************************************************/
+/*****                          ExploreCover                        *****/
+/************************************************************************/
 .Explore video {
   pointer-events: none;
   object-fit: contain;
@@ -276,6 +284,9 @@ body {
   opacity: 0.9;
 }
 
+/************************************************************************/
+/*****                          ExploreBody                         *****/
+/************************************************************************/
 .Explore-body {
   display: flex;
   position: relative;
@@ -503,16 +514,6 @@ body {
 /************************************************************************/
 /*****                         ExploreLoading                       *****/
 /************************************************************************/
-.Explore-Loading {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  text-align: center;
-}
-
 /************************************************************************/
 /*****                            NotFoundPage                      *****/
 /************************************************************************/
