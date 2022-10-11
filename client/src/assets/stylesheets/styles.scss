@@ -414,10 +414,11 @@ li.gold {
       align-items: center;
       gap: 15px;
       padding: 0 10px;
+
       > .selected {
         border: 1px solid $primary;
         color: $primary;
-        animation: selectedAnimation 0.5s linear;
+        animation: none;
       }
 
       > div {
@@ -431,6 +432,7 @@ li.gold {
         border-radius: 50px;
         cursor: pointer;
         transition: 0.2s;
+        animation: selectedAnimation 0.7s ease-in;
       }
     }
   }
@@ -438,12 +440,12 @@ li.gold {
 
 @keyframes selectedAnimation {
   0% {
-    border: 1px solid #7a7b7d;
-    color: #7a7b7d;
-  }
-  100% {
     border: 1px solid $primary;
     color: $primary;
+  }
+  100% {
+    border: 1px solid #7a7b7d;
+    color: #7a7b7d;
   }
 }
 
@@ -624,4 +626,19 @@ li.gold {
   100% {
     filter: blur(0px);
   }
+}
+
+.Not_Found {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: $white;
 }
