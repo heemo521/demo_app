@@ -11,11 +11,12 @@ const Cities = {
 
 const CitySelectorBody: FunctionComponent = () => {
   const [citiesList, setCitiesList] = useState([] as string[])
-
+  // Dynamic city list rendering
   useEffect(() => {
     axios.get('http://localhost:5000/v1/events/cities').then(res => {
       setCitiesList(res.data.data.reverse())
     })
+    // Hard code
 
     // const Cities: ICitySelector[] = [
     //   {city: '🗽 New York', key: 'nyc', className: 'gold'},

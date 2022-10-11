@@ -45,12 +45,12 @@ export const getCityEvents = async (req: Request, res: Response) => {
   } catch (err) {
     res.status(404).send({
       success: false,
-      message: err,
+      message: err.message,
     })
   }
 }
 
 export default {
   getCityList,
-  // getCityEvents,
+  getCityEvents,
 }

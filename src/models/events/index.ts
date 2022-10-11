@@ -6,20 +6,27 @@ export const eventsCollection = mongoose.connection.collection('events')
 export const getAllCities = async () => {
   const result = await eventsCollection.distinct('location')
 
-  const cities = result.map(city => {
+  return result.map(city => {
     const [lng, lat] = city.coordinates
-    console.log(lat, lng)
     const cityData = reverse.lookup(lat, lng, 'us')
-    console.log(cityData)
     return cityData.city
   })
-
-  return cities
 }
 
 export const groupByCityEvents = async (coordinates: number[]) => {
-  console.log('getting data')
+  return eventsCollection.find({}).toArray()
+  // const result = await eventsCollection.find({
+  //   'location.coordinates': {$geoWithin: {$centerSphere: [coordinates, 500 / 6778.1]}},
+  // })
 
-  const result = await eventsCollection.find({'location.coordinates': coordinates})
-  return result
+  // db.collection.find({
+  //   $and: [
+  //     {location: {$geoWithin: {$centerSphere: [[72.50325, 23.01222], 500 / 6378.1]}}},
+  //     {location: {$geoWithin: {$centerSphere: [[72.7788, 23.8787], 500 / 6378.1]}}},
+  //   ],
+  // })
+
+  // console.log(result)
+
+  // return result
 }
