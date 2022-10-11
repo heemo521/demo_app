@@ -8,7 +8,7 @@ interface ICitySelectorProps {}
 const CitySelector: React.FunctionComponent<ICitySelectorProps> = props => {
   return (
     <div className='CitySelector'>
-      <Confetti />
+      <Confetti stop={false} />
       <CitySelectorBody />
     </div>
   )

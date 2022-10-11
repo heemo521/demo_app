@@ -1,10 +1,11 @@
 import axios from 'axios'
 import React, {FunctionComponent, useEffect, useState} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Navigate} from 'react-router-dom'
 
 interface ICitySelector {
   city: string
   key: string
+  className: string
 }
 
 const CitySelectorBody: FunctionComponent = () => {
@@ -12,10 +13,10 @@ const CitySelectorBody: FunctionComponent = () => {
 
   useEffect(() => {
     const Cities: ICitySelector[] = [
-      {city: 'new york', key: 'nyc'},
-      {city: 'miami', key: 'mia'},
-      {city: 'los angeles', key: 'la'},
-      {city: 'near me', key: 'near'},
+      {city: '🗽 New York', key: 'nyc', className: 'gold'},
+      {city: '🌴 Miami', key: 'mia', className: 'gold'},
+      {city: '☀️ Los Angeles', key: 'la', className: 'gold'},
+      {city: '📍 Near Me', key: 'near', className: ''},
     ]
 
     setCitiesList(Cities)
@@ -26,10 +27,8 @@ const CitySelectorBody: FunctionComponent = () => {
       <div className='CitySelector-prompt'>Where are you looking for experiences?</div>
       <ul className='CitySelector-cities'>
         {citiesList.map((city: ICitySelector, i: number) => (
-          <li className='city gold' key={i}>
-            <Link to={'/explore?c=popular&t=week&p=1&city=' + city.key}>
-              <span>{city.city}</span>
-            </Link>
+          <li className={`city ${city.className}`} key={i} data-key={i}>
+            <Link to={'/explore?c=popular&t=week&p=1&city=' + city.key}>{city.city}</Link>
           </li>
         ))}
       </ul>

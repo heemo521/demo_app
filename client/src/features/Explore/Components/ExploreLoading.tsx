@@ -14,25 +14,22 @@ const ExploreLoading: FunctionComponent<{isLoaded: boolean}> = ({isLoaded}) => {
   }, [])
 
   useEffect(() => {
-    if (counter < 50) setCounter(counter + 1)
-    if (counter <= 100) {
+    if (counter < 50 && !returnNull) setCounter(counter + 1)
+    if (counter <= 100 && !returnNull) {
       setTimeout(() => {
         setCounter(counter + 3)
       }, 100)
-
-      if (isLoaded)
-        setTimeout(() => {
-          console.log('it should work!')
-          setReturnNull(true)
-        }, 300)
+    }
+    if (isLoaded) {
+      setTimeout(() => {
+        setReturnNull(true)
+      }, 30000)
     }
   }, [counter, isLoaded])
 
-  if (returnNull) return null
-
   return (
     <>
-      <Confetti />
+      <Confetti stop={returnNull} />
       <div className='Explore-loading'>
         <div>{selectedMsg}</div>
         <ProgressBar

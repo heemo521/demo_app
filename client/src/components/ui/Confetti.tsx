@@ -2,8 +2,14 @@ import React from 'react'
 import {Size, useWindowSize} from '../../hooks/useWindowSize'
 import ReactConfetti from 'react-confetti'
 
-export default function Confetti() {
+interface Props {
+  stop: boolean
+}
+
+export default function Confetti({stop}: Props) {
   const {width, height}: Size = useWindowSize()
+
+  if (stop) return null
 
   return (
     <ReactConfetti
