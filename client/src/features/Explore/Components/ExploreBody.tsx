@@ -15,7 +15,7 @@ const ExploreBody: FunctionComponent<IExploreBodyProps> = props => {
     <div className='Explore-body'>
       <div className='Explore-body-main'>
         <ExploreNav {...props} />
-        <ExploreEvents eventList={eventList} />
+        <ExploreEvents {...props} />
       </div>
     </div>
   )
