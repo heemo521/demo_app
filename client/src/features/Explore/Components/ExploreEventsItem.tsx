@@ -5,7 +5,7 @@ import {getLazyUrl} from '../utils/getLazyUrl'
 
 import {Events} from './Types/APIResponsesTypes'
 
-//TODO:  Add date!!!
+const WEEK = ['SUN', 'MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT']
 
 const ExploreEventsItem: FunctionComponent<{eventCard: Events}> = ({eventCard}) => {
   const EventCardRef: any = useRef<HTMLDivElement>()
@@ -23,12 +23,23 @@ const ExploreEventsItem: FunctionComponent<{eventCard: Events}> = ({eventCard}) 
     eventCard.flyer,
   )
 
+  const dayIndex = new Date(eventCard.startUtc).getUTCDay()
+
   useEffect(() => {
-    if (lazyImage.length > 0) EventCardRef.current.style.backgroundImage = `url(${eventCard.flyer})`
+    let timer: NodeJS.Timeout
+    console.log(WEEK[dayIndex])
+
+    if (lazyImage.length > 0) {
+      timer = setTimeout(() => (EventCardRef.current.style.backgroundImage = `url(${eventCard.flyer})`))
+    }
+
+    return () => clearTimeout(timer)
   }, [])
 
   useEffect(() => {
     if (lazyImage.length > 0 && isVisible) setLazyImage('')
+
+    return () => {}
   }, [lazyImage, isVisible])
 
   return (
@@ -39,11 +50,11 @@ const ExploreEventsItem: FunctionComponent<{eventCard: Events}> = ({eventCard}) 
       <div className='EventCard-filter'></div>
       <div className='EventCard-info'>
         <div className='EventCard-date'>
-          <div className='EventCard-dotw'>Today</div>
+          <div className='EventCard-dotw'>{WEEK[dayIndex]}</div>
         </div>
         <div>
           <div className='EventCard-name'>{eventCard.name}</div>
-          <div className='EventCard-location'>{eventCard.venueName}</div>
+          <div className='EventCard-location'>{eventCard.groupName}</div>
         </div>
       </div>
       <img className='EventCard-organizer' src={groupImage || ''} alt={eventCard.groupName} />
