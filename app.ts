@@ -8,11 +8,10 @@ import router from './src/routers/events'
 const app = express()
 app.use(cors())
 
-// GET /
-//localhost:5000/v1/events/?category=popular&t=${t}&p=${p}&city=${city}&lat=${lat}&lng=${lng}
 app.use(
   '/v1/events',
   (req, res, next) => {
+    console.log('Request incoming')
     next()
   },
   router,
