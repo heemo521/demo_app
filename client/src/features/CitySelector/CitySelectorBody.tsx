@@ -27,9 +27,9 @@ const CitySelectorBody: FunctionComponent = () => {
       <div className='CitySelector-prompt'>Where are you looking for experiences?</div>
       <ul className='CitySelector-cities'>
         {citiesList.map((city: ICitySelector, i: number) => (
-          <li className={`city ${city.className}`} key={i} data-key={i}>
-            <Link to={'/explore?c=popular&t=week&p=1&city=' + city.key}>{city.city}</Link>
-          </li>
+          <Link to={'/explore?c=popular&t=week&p=1&city=' + city.key} className={`city ${city.className}`} key={i}>
+            <li>{city.city}</li>
+          </Link>
         ))}
       </ul>
     </div>

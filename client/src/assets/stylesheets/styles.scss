@@ -164,7 +164,7 @@ a:active {
   text-decoration: none;
 }
 
-li.gold {
+a.gold {
   border: 1px solid #fc0;
   box-shadow: 0 0 10px -2px #fc0, 0px 0px 10px #fc0 inset;
   color: #fc0;
@@ -253,6 +253,11 @@ li.gold {
   height: 60px;
   transition: 0.2s;
   cursor: pointer;
+
+  &:hover,
+  &:active {
+    opacity: 1;
+  }
 }
 
 .Explore-loading {
