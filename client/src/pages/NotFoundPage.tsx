@@ -6,7 +6,9 @@ type Props = {}
 const NotFoundPage: FunctionComponent = (props: Props) => {
   useEffect(() => {
     document.title = '404! Page Not Found'
-    setTimeout(() => window.location.assign('/explore'), 5000)
+    const timer = setTimeout(() => window.location.assign('/explore'), 5000)
+
+    return () => clearTimeout(timer)
   }, [])
 
   return (
