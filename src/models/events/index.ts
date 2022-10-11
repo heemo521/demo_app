@@ -8,23 +8,18 @@ export const getAllCities = async () => {
 
   const cities = result.map(city => {
     const [lng, lat] = city.coordinates
-    return reverse.lookup(lat, lng, 'us').city
+    console.log(lat, lng)
+    const cityData = reverse.lookup(lat, lng, 'us')
+    console.log(cityData)
+    return cityData.city
   })
 
   return cities
 }
 
-export const groupByCityEvents = async () => {
+export const groupByCityEvents = async (coordinates: number[]) => {
   console.log('getting data')
-  // const result = await eventsCollection.distinct('location')
 
-  // const cities = result.map(city => {
-  //   const [lng, lat] = city.coordinates
-
-  //   const cityName = reverse.lookup(lat, lng, 'us')
-
-  //   return cityName.city
-  // })
-
-  return null
+  const result = await eventsCollection.find({'location.coordinates': coordinates})
+  return result
 }
