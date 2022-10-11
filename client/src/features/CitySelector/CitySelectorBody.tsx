@@ -37,12 +37,3 @@ const CitySelectorBody: FunctionComponent = () => {
 }
 
 export default CitySelectorBody
-
-// axios('https://localhost:5000/v1/events/cities')
-//   .then(res => {
-//     console.log(res.data)
-//     // TODO: set the list when received cities
-
-//     // setCitiesList(res.data)
-//   })
-//   .catch(err => console.error(err))

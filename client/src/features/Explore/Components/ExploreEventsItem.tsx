@@ -5,6 +5,8 @@ import {getLazyUrl} from '../utils/getLazyUrl'
 
 import {Events} from './Types/APIResponsesTypes'
 
+import {isToday} from '../../../utils/isToday'
+
 const ExploreEventsItem: FunctionComponent<{eventCard: Events}> = ({eventCard}) => {
   const EventCardRef: any = useRef<HTMLDivElement>()
 
@@ -20,16 +22,6 @@ const ExploreEventsItem: FunctionComponent<{eventCard: Events}> = ({eventCard}) 
     'https://res.cloudinary.com/djftxayyc/image/upload/c_scale,w_100/v1665257399/',
     eventCard.flyer,
   )
-
-  function isToday(date: string) {
-    const today = new Date().toDateString()
-    const dateString = new Date(date).toDateString()
-
-    if (today === dateString) {
-      return 'TODAY'
-    }
-    return dateString.split(' ')[0].toUpperCase()
-  }
 
   useEffect(() => {
     let timer: NodeJS.Timeout

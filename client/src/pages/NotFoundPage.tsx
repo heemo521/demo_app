@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 type Props = {}
 
 const NotFoundPage: FunctionComponent = (props: Props) => {
-  const [redirect, seRedirect] = useState(false)
   useEffect(() => {
     document.title = '404! Page Not Found'
     setTimeout(() => window.location.assign('/explore'), 5000)
