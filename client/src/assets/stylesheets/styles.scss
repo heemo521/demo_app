@@ -414,10 +414,12 @@ li.gold {
       align-items: center;
       gap: 15px;
       padding: 0 10px;
-      > div.selected {
+      > .selected {
         border: 1px solid $primary;
         color: $primary;
+        animation: selectedAnimation 0.5s linear;
       }
+
       > div {
         border: 1px solid #7a7b7d;
         text-transform: uppercase;
@@ -431,6 +433,17 @@ li.gold {
         transition: 0.2s;
       }
     }
+  }
+}
+
+@keyframes selectedAnimation {
+  0% {
+    border: 1px solid #7a7b7d;
+    color: #7a7b7d;
+  }
+  100% {
+    border: 1px solid $primary;
+    color: $primary;
   }
 }
 
