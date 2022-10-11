@@ -1,74 +1,66 @@
-@import 'globals';
-
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,800,900');
-@import url('https://fonts.googleapis.com/css?family=Nunito:100,200,300,400,500,600,700,800');
-@import url('https://fonts.googleapis.com/css?family=Dela+Gothic+One:100,200,300,400,500,600,700,800');
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,800,900");
+@import url("https://fonts.googleapis.com/css?family=Nunito:100,200,300,400,500,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Dela+Gothic+One:100,200,300,400,500,600,700,800");
 @font-face {
   font-family: Folsom;
   src: url(https://poshtesting.s3.amazonaws.com/folsom-black-web.ttf);
 }
 @font-face {
   font-family: Bebas Neue;
-  src: url('https://posh-b2.s3.us-east-2.amazonaws.com/BebasNeue-Bold.otf');
+  src: url("https://posh-b2.s3.us-east-2.amazonaws.com/BebasNeue-Bold.otf");
 }
 @font-face {
   font-family: Newake;
-  src: url('https://posh-b2.s3.us-east-2.amazonaws.com/Newake-Font-Regular.otf');
+  src: url("https://posh-b2.s3.us-east-2.amazonaws.com/Newake-Font-Regular.otf");
 }
 @font-face {
   font-family: Circular Std;
-  src: url('https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-Book.otf');
+  src: url("https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-Book.otf");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: Circular Std;
-  src: url('https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-BookItalic.otf');
+  src: url("https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-BookItalic.otf");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
   font-family: Circular Std;
-  src: url('https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-Medium.otf');
+  src: url("https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-Medium.otf");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: Circular Std;
-  src: url('https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-MediumItalic.otf');
+  src: url("https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-MediumItalic.otf");
   font-weight: 600;
   font-style: italic;
 }
 @font-face {
   font-family: Circular Std;
-  src: url('https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-Bold.otf');
+  src: url("https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-Bold.otf");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: Circular Std;
-  src: url('https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-BoldItalic.otf');
+  src: url("https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-BoldItalic.otf");
   font-weight: 700;
   font-style: italic;
 }
 @font-face {
   font-family: Circular Std;
-  src: url('https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-Black.otf');
+  src: url("https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-Black.otf");
   font-weight: 900;
   font-style: normal;
 }
 @font-face {
   font-family: Circular Std;
-  src: url('https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-BlackItalic.otf');
+  src: url("https://posh-b2.s3.us-east-2.amazonaws.com/CircularStd/CircularStd-BlackItalic.otf");
   font-weight: 900;
   font-style: italic;
 }
-
-$sans-serif: 'Roboto', helvetica, verdana, sans-serif;
-$nunito: 'Nunito', helvetica, verdana, nunito;
-$delta-gothic-one: 'Folsom', helvetica, verdana, delta-gothic-one;
-$folsom: 'Folsom', arial;
-
 *,
 :after,
 :before {
@@ -82,10 +74,10 @@ $folsom: 'Folsom', arial;
 html,
 body {
   margin: 0;
-  font-family: $nunito;
+  font-family: "Nunito", helvetica, verdana, nunito;
   max-width: 100%;
   overflow-x: hidden;
-  background: $background-black;
+  background: #0a0b0d;
   scroll-behavior: smooth;
 }
 
@@ -99,16 +91,14 @@ body {
   border: 1px solid #4a4b4d;
   border-radius: 4px;
   opacity: 0.8;
-
-  &:hover {
-    background: #4a4b4d;
-  }
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4b4d;
 }
 
 /************************************************************************/
 /*****                          CitySelector                        *****/
 /************************************************************************/
-
 .CitySelector {
   background: #000;
   height: 100vh;
@@ -119,10 +109,10 @@ body {
   justify-content: center;
   overflow: hidden;
 }
+
 /************************************************************************/
 /*****                          CitySelector-Body                   *****/
 /************************************************************************/
-
 .CitySelector-Body {
   display: flex;
   flex-direction: column;
@@ -134,28 +124,26 @@ body {
   width: 100%;
 }
 
-.CitySelector {
-  &-prompt {
-    color: #fc0;
-    text-transform: uppercase;
-    font-family: Circular Std;
-    font-weight: 200;
-    font-size: 16px;
-    white-space: nowrap;
-    text-align: center;
-    animation: fade-in-top 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  }
-  &-cities {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-  }
+.CitySelector-prompt {
+  color: #fc0;
+  text-transform: uppercase;
+  font-family: Circular Std;
+  font-weight: 200;
+  font-size: 16px;
+  white-space: nowrap;
+  text-align: center;
+  animation: fade-in-top 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
+.CitySelector-cities {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
 /************************************************************************/
 /*****                          City                                *****/
 /************************************************************************/
-
 .city {
   display: flex;
   justify-content: center;
@@ -174,38 +162,43 @@ body {
   transition: 0.2s;
   animation: fadeInRightB 2s forwards ease-out;
   opacity: 0;
-  &:hover {
-    box-shadow: 0 0 30px -2px #0cf, 0px 0px 10px #0cf inset;
-  }
-
-  &.gold {
-    border: 1px solid #fc0;
-    box-shadow: 0 0 10px -2px #fc0, 0px 0px 10px #fc0 inset;
-    color: #fc0;
-    &:hover {
-      box-shadow: 0 0 30px -2px #fc0, 0px 0px 10px #fc0 inset;
-    }
-  }
+}
+.city:hover {
+  box-shadow: 0 0 30px -2px #0cf, 0px 0px 10px #0cf inset;
+}
+.city.gold {
+  border: 1px solid #fc0;
+  box-shadow: 0 0 10px -2px #fc0, 0px 0px 10px #fc0 inset;
+  color: #fc0;
+}
+.city.gold:hover {
+  box-shadow: 0 0 30px -2px #fc0, 0px 0px 10px #fc0 inset;
 }
 
-// Delay animation time on each child element based on its position
-@for $i from 1 to 5 {
-  .city:nth-child(#{$i}n) {
-    $time: 0.5 * $i;
-    animation-delay: #{$time}s;
-  }
+.city:nth-child(1n) {
+  animation-delay: 0.5s;
 }
 
-@include up-to-breakpoint($tablet) {
+.city:nth-child(2n) {
+  animation-delay: 1s;
+}
+
+.city:nth-child(3n) {
+  animation-delay: 1.5s;
+}
+
+.city:nth-child(4n) {
+  animation-delay: 2s;
+}
+
+@media (max-width: 768px) {
   .CitySelector-Body {
     transform: scale(1);
   }
 }
-
 /************************************************************************/
 /*****                            Explore                           *****/
 /************************************************************************/
-
 .Explore-back {
   position: absolute;
   opacity: 0.6;
@@ -215,15 +208,13 @@ body {
   height: 60px;
   transition: 0.2s;
   cursor: pointer;
-
-  &:hover,
-  &:active {
-    opacity: 1;
-  }
+}
+.Explore-back:hover, .Explore-back:active {
+  opacity: 1;
 }
 
 .Explore-loading {
-  color: $primary;
+  color: #ffcc00;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -238,7 +229,6 @@ body {
 /************************************************************************/
 /*****                          ExploreCover                        *****/
 /************************************************************************/
-
 .Explore {
   display: flex;
   flex-direction: column;
@@ -268,7 +258,6 @@ body {
   min-width: 100%;
   min-height: 100%;
   opacity: 0.6;
-
   filter: blur(100px);
 }
 
@@ -276,16 +265,15 @@ body {
   height: 300px;
   width: 100%;
   position: relative;
-
-  &-video {
-    width: 1200px;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    mix-blend-mode: screen;
-    opacity: 0.9;
-  }
+}
+.Explore-cover-video {
+  width: 1200px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  opacity: 0.9;
 }
 
 .Explore-body {
@@ -302,6 +290,7 @@ body {
   gap: 15px;
   padding: 0 10px;
 }
+
 @media (max-width: 576px) {
   .Explore-cover {
     height: 200px;
@@ -339,45 +328,42 @@ body {
   width: 100%;
   min-height: calc(100vh - 300px);
 }
+
 .Explore-body-main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-
-  &-nav {
-    height: 60px;
-    min-height: 60px;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-
-    &-right {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      padding: 0 10px;
-
-      > .selected {
-        border: 1px solid $primary;
-        color: $primary;
-        animation: none;
-      }
-
-      > div {
-        border: 1px solid #7a7b7d;
-        text-transform: uppercase;
-        font-family: Circular Std;
-        font-weight: 700;
-        color: #7a7b7d;
-        font-size: 14px;
-        padding: 8px 30px;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: 0.2s;
-        animation: selectedAnimation 0.7s ease-in;
-      }
-    }
-  }
+}
+.Explore-body-main-nav {
+  height: 60px;
+  min-height: 60px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.Explore-body-main-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0 10px;
+}
+.Explore-body-main-nav-right > .selected {
+  border: 1px solid #ffcc00;
+  color: #ffcc00;
+  animation: none;
+}
+.Explore-body-main-nav-right > div {
+  border: 1px solid #7a7b7d;
+  text-transform: uppercase;
+  font-family: Circular Std;
+  font-weight: 700;
+  color: #7a7b7d;
+  font-size: 14px;
+  padding: 8px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.2s;
+  animation: selectedAnimation 0.7s ease-in;
 }
 
 /************************************************************************/
@@ -400,19 +386,16 @@ body {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
 @media only screen and (max-width: 1400px) {
   .EventCardGrid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
 @media only screen and (max-width: 1000px) {
   .EventCardGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (max-width: 576px) {
   .EventCardGrid {
     padding: 30px 0 10px;
@@ -423,7 +406,6 @@ body {
 /************************************************************************/
 /*****                        ExploreEventsItem                     *****/
 /************************************************************************/
-
 .EventCard {
   background: #000000;
   height: 400px;
@@ -440,22 +422,20 @@ body {
   transition: 0.2s;
   overflow: hidden;
   box-shadow: 0px 8px 11px rgba(0, 0, 0, 0.25);
-
-  &.Loading {
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: scale(1);
-    transition: 0.5s;
-  }
-  &:hover {
-    transform: scale(1.05);
-    // box-shadow: 0px 8px 11px rgba(0, 0, 0, 0.25);
-    box-shadow: 1px 1px 6px 0px #0cf;
-  }
+}
+.EventCard.Loading {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1);
+  transition: 0.5s;
+}
+.EventCard:hover {
+  transform: scale(1.05);
+  box-shadow: 1px 1px 6px 0px #0cf;
 }
 
 .EventCard-organizer {
@@ -467,6 +447,7 @@ body {
   top: 15px;
   left: 15px;
 }
+
 .EventCard-filter {
   position: absolute;
   top: 0;
@@ -475,6 +456,7 @@ body {
   height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.8666666667) 90%, #000 100%);
 }
+
 .EventCard-info {
   z-index: 1;
   display: flex;
@@ -491,6 +473,7 @@ body {
   padding-right: 15px;
   margin-right: 10px;
 }
+
 .EventCard-dotw {
   font-family: Circular Std;
   font-weight: 700;
@@ -498,6 +481,7 @@ body {
   font-size: 20px;
   color: #fff;
 }
+
 .EventCard-name {
   color: #fff;
   height: 24px;
@@ -515,10 +499,10 @@ body {
   font-weight: 200;
   font-size: 15px;
 }
+
 /************************************************************************/
 /*****                         ExploreLoading                       *****/
 /************************************************************************/
-
 .Explore-Loading {
   position: absolute;
   top: 0;
@@ -532,7 +516,6 @@ body {
 /************************************************************************/
 /*****                            NotFoundPage                      *****/
 /************************************************************************/
-
 .Not_Found {
   width: 100vw;
   height: 100vh;
@@ -545,24 +528,20 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: $white;
+  color: #fff;
 }
 
 /************************************************************************/
 /*****                               Utils                          *****/
 /************************************************************************/
-
 .load {
   animation: blurOutAnimation 0.5s;
-  // animation-iteration-count: 1;
-  // animation-fill-mode: forwards;
 }
 
 .lazy-img {
   filter: blur(100px) !important;
 }
 
-//Link Styling
 a,
 a:visited,
 a:active {
@@ -580,7 +559,6 @@ a:active {
     filter: blur(0px);
   }
 }
-
 /****************************** fade-in-top  ******************************/
 @keyframes fade-in-top {
   0% {
@@ -593,7 +571,6 @@ a:active {
   }
 }
 /********************************** END *********************************/
-
 @keyframes fadeInRightB {
   0% {
     opacity: 0;
@@ -604,21 +581,17 @@ a:active {
     transform: translateY(0px);
   }
 }
-
 @keyframes fadeInAnimation {
   0% {
     opacity: 0;
   }
-
   50% {
     opacity: 0.5;
   }
-
   100% {
     opacity: 1;
   }
 }
-
 @keyframes fastInSlowFadeOutAnimation {
   0% {
     opacity: 0.5;
@@ -629,21 +602,20 @@ a:active {
     transform: scale(1);
   }
 }
-
 @keyframes onHoverAnimation {
   0% {
     transform: scale(1);
   }
-  100% {
-  }
 }
 @keyframes selectedAnimation {
   0% {
-    border: 1px solid $primary;
-    color: $primary;
+    border: 1px solid #ffcc00;
+    color: #ffcc00;
   }
   100% {
     border: 1px solid #7a7b7d;
     color: #7a7b7d;
   }
 }
+
+/*# sourceMappingURL=output.css.map */

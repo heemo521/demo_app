@@ -1,9 +1,7 @@
 import React, {FunctionComponent, useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 
-type Props = {}
-
-const NotFoundPage: FunctionComponent = (props: Props) => {
+const NotFoundPage: FunctionComponent = props => {
   useEffect(() => {
     document.title = '404! Page Not Found'
     const timer = setTimeout(() => window.location.assign('/explore'), 5000)

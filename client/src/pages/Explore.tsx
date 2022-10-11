@@ -5,7 +5,7 @@ import {useSearchParams} from 'react-router-dom'
 
 const Explore: FunctionComponent = () => {
   const [searchParams, setSearchParams] = useSearchParams()
-  //setSearchParams: SetURLSearchParams
+
   const city = searchParams.get('city') || null
   const c = searchParams.get('c') === 'popular' ? 'popular' : 'popular'
   const t = searchParams.get('t') === 'day' ? 'day' : 'week'
@@ -14,7 +14,7 @@ const Explore: FunctionComponent = () => {
   const props = {city, c, t, p, setSearchParams}
 
   useEffect(() => {
-    console.log('Here is the queries' + ' t' + t + 'p' + p + 'c' + c + 'city' + city)
+    // console.log('Here is the queries' + ' t' + t + 'p' + p + 'c' + c + 'city' + city)
     if (!city) {
       setSearchParams('?c=popular&t=week&p=1&city=')
     } else {

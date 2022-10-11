@@ -17,14 +17,12 @@ const CitySelectorBody: FunctionComponent = () => {
       setCitiesList(res.data.data.reverse())
     })
     // Hard code
-
     // const Cities: ICitySelector[] = [
     //   {city: '🗽 New York', key: 'nyc', className: 'gold'},
     //   {city: '🌴 Miami', key: 'mia', className: 'gold'},
     //   {city: '☀️ Los Angeles', key: 'la', className: 'gold'},
     //   {city: '📍 Near Me', key: 'near', className: ''},
     // ]
-
     // setCitiesList(Cities)
   }, [])
 
