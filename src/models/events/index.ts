@@ -16,15 +16,15 @@ export const getAllCities = async () => {
 
 export const groupByCityEvents = async () => {
   console.log('getting data')
-  const result = await eventsCollection.distinct('location')
+  // const result = await eventsCollection.distinct('location')
 
-  const cities = result.map(city => {
-    const [lng, lat] = city.coordinates
-    console.log(lat, lng)
-    const cityName = reverse.lookup(lat, lng, 'us')
-    console.log(cityName.city)
-    return cityName.city
-  })
+  // const cities = result.map(city => {
+  //   const [lng, lat] = city.coordinates
 
-  return cities
+  //   const cityName = reverse.lookup(lat, lng, 'us')
+
+  //   return cityName.city
+  // })
+
+  return null
 }

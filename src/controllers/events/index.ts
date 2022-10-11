@@ -1,4 +1,5 @@
 import {Request, Response} from 'express'
+import reverse from 'reverse-geocode'
 import {getAllCities, groupByCityEvents} from '../../models/events'
 
 // convert the coordinates into city name and send it back
@@ -24,27 +25,23 @@ export const getCityEvents = async (req: Request, res: Response) => {
   try {
     const {category, t: timeFrame, p: page, city, lat: latitude, lng: longitude} = req.query
 
-    // console.log(category, timeFrame, page, latitude, longitude, city)
+    console.log(category, timeFrame, page, latitude, longitude, city)
 
-    // if (!timeFrame || !city) throw new Error('Please provide a city and or time frame')
+    let selectedCity = city
 
-    // if (city === 'near') {
-    //   if (!latitude || !longitude) throw new Error('Allow location coordinates')
+    if (!timeFrame || !city) throw new Error('Please provide a city and/or time frame')
 
-    //   const cityEvents = await groupByCityEvents()
+    if (city === 'near') {
+      if (!latitude || !longitude) throw new Error('Allow location coordinates to find events near you')
 
-    //   return res.send({
-    //     success: true,
-    //     message: 'Success! Here are events near you',
-    //     data: cityEvents,
-    //   })
-    // }
+      selectedCity = reverse.lookup(Number(latitude), Number(longitude), 'us').city
+    }
 
-    const cityEvents = await groupByCityEvents()
+    const cityEvents = await groupByCityEvents(selectedCity, timeFrame, page)
 
     res.send({
       success: true,
-      message: 'Here are city events',
+      message: 'Success! Here are events at city: ' + city,
       data: cityEvents,
     })
   } catch (err) {
