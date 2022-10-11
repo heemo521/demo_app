@@ -12,7 +12,7 @@ const ExploreEventsItem: FunctionComponent<{eventCard: Events}> = ({eventCard}) 
 
   const [lazyImage, setLazyImage] = useState<string>('lazy-img')
 
-  const isVisible = useOnScreen<HTMLDivElement>(EventCardRef, 0.2)
+  const isVisible = useOnScreen<HTMLDivElement>(EventCardRef, 0.1)
 
   const groupImage = getLazyUrl(
     'https://res.cloudinary.com/djftxayyc/image/upload/c_scale,w_100/v1665257399/',

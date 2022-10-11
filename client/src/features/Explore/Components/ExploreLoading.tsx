@@ -23,7 +23,7 @@ const ExploreLoading: FunctionComponent<{isLoaded: boolean}> = ({isLoaded}) => {
     if (isLoaded) {
       setTimeout(() => {
         setReturnNull(true)
-      }, 30000)
+      }, 1500)
     }
   }, [counter, isLoaded])
 
