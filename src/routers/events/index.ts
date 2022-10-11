@@ -6,6 +6,8 @@ const router = Router()
 
 router.route('/cities').get(getCityList)
 
+router.get('/test', getCityEvents)
+
 router.route('/').get(getCityEvents)
 
 export default router

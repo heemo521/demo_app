@@ -3,10 +3,12 @@ import {EventSchema} from './db'
 
 export const eventsCollection = mongoose.connection.collection('events')
 
-export const getAllEvents = () => {
-  return eventsCollection.find({}).toArray()
+export const getAllCities = async () => {
+  const result = await eventsCollection.distinct('location')
+  console.log('result: ', result)
+  return result
 }
 
-export const getAllCities = async () => {
-  return EventSchema.aggregate.sortByCount('name')
+export const groupByCityEvents = async () => {
+  console.log('getting data')
 }

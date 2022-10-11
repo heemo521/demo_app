@@ -1,47 +1,51 @@
 import {Request, Response} from 'express'
-import {getAllEvents, getAllCities} from '../../models/events'
+import {getAllCities, groupByCityEvents} from '../../models/events'
 
 export const getCityList = async (req: Request, res: Response) => {
-  const events = await getAllCities()
+  try {
+    const events = await getAllCities()
 
-  res.send({
-    success: true,
-    message: 'Here are list of cities ',
-    data: events,
-  })
+    // convert the coordinates into city name and send it back
+
+    res.send({
+      success: true,
+      message: 'Here are list of cities ',
+      data: events,
+    })
+  } catch (err) {
+    res.status(404).send({
+      success: false,
+      message: err,
+    })
+  }
 }
 
 export const getCityEvents = async (req: Request, res: Response) => {
   try {
-    //    /?category=popular&t=${t}&p=${p}&city=${city}&lat=${lat}&lng=${lng}
-    //TODO: need getCityEvents instead of getAllEvents
-    const events = await getAllEvents()
-
     const {category, t: timeFrame, p: page, city, lat: latitude, lng: longitude} = req.query
 
     console.log(category, timeFrame, page, latitude, longitude, city)
 
-    if (!timeFrame || !city) throw new Error('Please provide a city and or time frame')
+    // if (!timeFrame || !city) throw new Error('Please provide a city and or time frame')
 
-    if (city === 'near') {
-      if (!latitude || !longitude) throw new Error('Allow location coordinates')
+    // if (city === 'near') {
+    //   if (!latitude || !longitude) throw new Error('Allow location coordinates')
 
-      return res.send({
-        success: true,
-        message: 'Success! Here are events near you',
-        data: events,
-        // data: {location: 'near', latitude, longitude},
-      })
-    }
+    //   const cityEvents = await groupByCityEvents()
 
-    events.forEach(event => {
-      console.log(event)
-    })
+    //   return res.send({
+    //     success: true,
+    //     message: 'Success! Here are events near you',
+    //     data: cityEvents,
+    //   })
+    // }
+
+    const cityEvents = await groupByCityEvents()
 
     res.send({
       success: true,
-      message: `Found events for city '${city}'`,
-      data: events,
+      message: 'Here are city events',
+      data: cityEvents,
     })
   } catch (err) {
     res.status(404).send({
