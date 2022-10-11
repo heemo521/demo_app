@@ -1,11 +1,11 @@
 import {Request, Response} from 'express'
 import {getAllCities, groupByCityEvents} from '../../models/events'
 
+// convert the coordinates into city name and send it back
+
 export const getCityList = async (req: Request, res: Response) => {
   try {
     const events = await getAllCities()
-
-    // convert the coordinates into city name and send it back
 
     res.send({
       success: true,
@@ -24,7 +24,7 @@ export const getCityEvents = async (req: Request, res: Response) => {
   try {
     const {category, t: timeFrame, p: page, city, lat: latitude, lng: longitude} = req.query
 
-    console.log(category, timeFrame, page, latitude, longitude, city)
+    // console.log(category, timeFrame, page, latitude, longitude, city)
 
     // if (!timeFrame || !city) throw new Error('Please provide a city and or time frame')
 

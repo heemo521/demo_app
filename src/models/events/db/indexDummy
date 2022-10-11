@@ -1,0 +1,20 @@
+// const mongoose = require('mongoose')
+
+// export const EventSchema = new mongoose.Schema({
+//   timezone: String,
+//   name: String,
+//   startUtf: Date,
+//   venueName: String,
+//   location: {
+//     coordinates: [Number],
+//     type: String,
+//   },
+//   flyer: String,
+//   url: String,
+//   groupName: String,
+//   groupAvi: {
+//     type: String,
+//   },
+// })
+
+// module.exports = mongoose.models.Game || mongoose.model('Events', EventSchema)

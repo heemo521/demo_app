@@ -4,21 +4,8 @@ import {eventsCollection} from '../../models/events'
 
 const router = Router()
 
-router.route('/cities').get(getCityList)
+router.get('/cities', getCityList)
 
-router.get('/test', getCityEvents)
-
-router.route('/').get(getCityEvents)
+router.get('/', getCityEvents)
 
 export default router
-
-// router.route('/test').get(async (req, res) => {
-//   console.log('hellooooo')
-//   const data = await eventsCollection.aggregate()
-//   console.log('Getting ' + data)
-
-//   res.send({
-//     success: true,
-//     data: data,
-//   })
-// })
