@@ -371,6 +371,24 @@ body {
   gap: 15px;
 }
 
+@include up-to-breakpoint($mobile) {
+  .EventCardGrid {
+    padding: 30px 0 10px;
+    width: 100%;
+  }
+}
+
+$exploreMap: $mobile $desktop $wide-desktop $wide-desktop2 $wide-desktop3;
+
+@for $i from length($exploreMap) through 1 {
+  $breakpoint: nth($exploreMap, $i);
+  @include up-to-breakpoint($breakpoint) {
+    .EventCardGrid {
+      grid-template-columns: repeat($i, 1fr);
+    }
+  }
+}
+
 /************************************************************************/
 /*****                        ExploreEventsItem                     *****/
 /************************************************************************/
@@ -477,36 +495,6 @@ body {
 /*****                     @media: Explore-Responsive               *****/
 /************************************************************************/
 
-@media only screen and (max-width: 2100px) {
-  .EventCardGrid {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-@media only screen and (max-width: 1800px) {
-  .EventCardGrid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media only screen and (max-width: 1400px) {
-  .EventCardGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media only screen and (max-width: 1000px) {
-  .EventCardGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 576px) {
-  .EventCardGrid {
-    padding: 30px 0 10px;
-    width: 100%;
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
 @include up-to-breakpoint($mobile) {
   .Explore-cover {
     height: 200px;
