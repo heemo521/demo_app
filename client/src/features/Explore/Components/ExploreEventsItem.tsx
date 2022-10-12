@@ -41,7 +41,7 @@ const ExploreEventsItem: FunctionComponent<{eventCard: Events}> = ({eventCard}) 
 
   return (
     <div
-      className={`EventCard ${lazyImage.length > 0 ? lazyImage : 'load'}`}
+      className={`EventCard ${lazyImage.length > 0 ? lazyImage : 'visible'}`}
       ref={EventCardRef}
       style={{backgroundImage: `url(${eventImage})`}}>
       <div className='EventCard-filter'></div>
