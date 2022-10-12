@@ -4,7 +4,7 @@ import axios from 'axios'
 import ExploreLoading from './Components/ExploreLoading'
 import ExploreCover from './Components/ExploreCover'
 import ExploreBody from './Components/ExploreBody'
-
+import {Events} from './Components/Types/APIResponsesTypes'
 import BackButton from '../../components/ui/BackButton'
 export interface IExploreMainProps {
   city: string | null
@@ -49,11 +49,22 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = props => {
 
         if (!success) throw new Error('failed to get data ' + message)
 
+        // Need to order the events by date... (the data should be for the next 7 days)
+        // Create date object for each event first and then sort...
+        // read a comment about how creating Date in side the sort can negatively affect performance
+        // So needs some testing
+        const sortedEvents = data
+          .map((event: Events) => {
+            event.date = new Date(event.startUtc)
+            return event
+          })
+          .sort((a: Events, b: Events) => a.date.getTime() - b.date.getTime())
+
+        setEventList(sortedEvents)
         setIsLoaded(data.length > 0)
-        setEventList(data)
       })
       .catch(err => {
-        // alert(err.message)
+        alert(err.message)
       })
 
   // load the loading image and using a state that will be update inside the
