@@ -1,6 +1,5 @@
-import axios from 'axios'
 import React, {FunctionComponent, useEffect, useState} from 'react'
-import {Link, Navigate} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 interface ICitySelector {
   city: string
@@ -22,8 +21,7 @@ const CitySelectorBody: FunctionComponent = () => {
     setCitiesList(Cities)
 
     // *BONUS* Dynamic city list rendering => this fetch will get the list of cities via reverse geolocation using coordinates in the db
-    // At the moment, the screen will load twice because the fetching happens after the component is mounted
-    // therefore, the fetching needs to happen in the parent scope and passed down when loaded
+    // Requires tweaking
     //   axios.get('http://localhost:5000/v1/events/cities').then(res => {
     //     setCitiesList(res.data.data.reverse())
     //   })

@@ -14,10 +14,10 @@ const ExploreLoading: FunctionComponent<{isLoaded: boolean}> = ({isLoaded}) => {
   }, [])
 
   useEffect(() => {
-    if (counter < 50 && !returnNull) setCounter(counter + 1)
+    if (counter < 50 && !returnNull) setCounter(counter => counter + 1)
     if (counter <= 100 && !returnNull) {
       setTimeout(() => {
-        setCounter(counter + 3)
+        setCounter(counter => counter + 3)
       }, 100)
     }
     if (isLoaded) {

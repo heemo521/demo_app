@@ -9,7 +9,7 @@ import '../src/assets/webfonts/Nunito/Nunito-Black.ttf'
 
 import NotFoundPage from 'pages/NotFoundPage'
 
-const App: FunctionComponent = props => {
+const App: FunctionComponent = () => {
   return (
     <Routes>
       <Route path='/explore/*' element={<Explore />} />

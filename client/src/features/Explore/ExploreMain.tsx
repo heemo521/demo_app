@@ -11,7 +11,7 @@ export interface IExploreMainProps {
   c: string
   t: string
   p: number
-  setSearchParams: Function
+  setSearchParams: (value: string) => void
 }
 
 const ExploreMain: FunctionComponent<IExploreMainProps> = props => {

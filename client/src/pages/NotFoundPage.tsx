@@ -1,7 +1,7 @@
-import React, {FunctionComponent, useEffect, useState} from 'react'
+import React, {FunctionComponent, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 
-const NotFoundPage: FunctionComponent = props => {
+const NotFoundPage: FunctionComponent = () => {
   useEffect(() => {
     document.title = '404! Page Not Found'
     const timer = setTimeout(() => window.location.assign('/explore'), 5000)

@@ -1,11 +1,8 @@
-import CitySelectorBody from 'features/CitySelector/CitySelectorBody'
 import React from 'react'
-
 import Confetti from '../components/ui/Confetti'
+import CitySelectorBody from 'features/CitySelector/CitySelectorBody'
 
-interface ICitySelectorProps {}
-
-const CitySelector: React.FunctionComponent<ICitySelectorProps> = props => {
+const CitySelector: React.FunctionComponent = () => {
   return (
     <div className='CitySelector'>
       <Confetti stop={false} />

@@ -1,4 +1,4 @@
-import {useState, useEffect, MutableRefObject} from 'react'
+import {useEffect, useState, MutableRefObject} from 'react'
 
 function useOnScreen<T extends Element>(EventCardRef: MutableRefObject<T>, threshold = 0.5): boolean {
   const [isVisible, setIsVisible] = useState<boolean>(false)
