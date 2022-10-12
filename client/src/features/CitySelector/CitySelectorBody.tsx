@@ -2,40 +2,40 @@ import axios from 'axios'
 import React, {FunctionComponent, useEffect, useState} from 'react'
 import {Link, Navigate} from 'react-router-dom'
 
-const Cities = {
-  Brooklyn: ['nyc', 'gold'],
-  Miami: ['mia', 'gold'],
-  'Los Angeles': ['la', 'gold'],
-  'Near Me': ['near', ''],
+interface ICitySelector {
+  city: string
+  key: string
+  className: string
 }
 
 const CitySelectorBody: FunctionComponent = () => {
-  const [citiesList, setCitiesList] = useState([] as string[])
-  // Dynamic city list rendering
+  const [citiesList, setCitiesList] = useState([] as ICitySelector[])
+
   useEffect(() => {
-    axios.get('http://localhost:5000/v1/events/cities').then(res => {
-      setCitiesList(res.data.data.reverse())
-    })
-    // Hard code
-    // const Cities: ICitySelector[] = [
-    //   {city: '🗽 New York', key: 'nyc', className: 'gold'},
-    //   {city: '🌴 Miami', key: 'mia', className: 'gold'},
-    //   {city: '☀️ Los Angeles', key: 'la', className: 'gold'},
-    //   {city: '📍 Near Me', key: 'near', className: ''},
-    // ]
-    // setCitiesList(Cities)
+    // Hard code Cities
+    const Cities: ICitySelector[] = [
+      {city: '🗽 New York', key: 'nyc', className: 'gold'},
+      {city: '🌴 Miami', key: 'mia', className: 'gold'},
+      {city: '☀️ Los Angeles', key: 'la', className: 'gold'},
+      {city: '📍 Near Me', key: 'near', className: ''},
+    ]
+    setCitiesList(Cities)
+
+    // *BONUS* Dynamic city list rendering => this fetch will get the list of cities via reverse geolocation using coordinates in the db
+    // At the moment, the screen will load twice because the fetching happens after the component is mounted
+    // therefore, the fetching needs to happen in the parent scope and passed down when loaded
+    //   axios.get('http://localhost:5000/v1/events/cities').then(res => {
+    //     setCitiesList(res.data.data.reverse())
+    //   })
   }, [])
 
   return (
     <div className='CitySelector-Body'>
       <div className='CitySelector-prompt'>Where are you looking for experiences?</div>
       <ul className='CitySelector-cities'>
-        {[...citiesList, 'Near Me'].map((city: string, i: number) => (
-          <Link
-            to={'/explore?c=popular&t=week&p=1&city=' + Cities[city][0]}
-            className={`city ${Cities[city][1]}`}
-            key={i}>
-            <li>{city}</li>
+        {citiesList.map((city: ICitySelector, i: number) => (
+          <Link to={'/explore?c=popular&t=week&p=1&city=' + city.key} className={`city ${city.className}`} key={i}>
+            <li>{city.city}</li>
           </Link>
         ))}
       </ul>
