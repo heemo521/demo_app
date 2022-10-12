@@ -12,6 +12,7 @@ export interface Events {
   url: string
   groupName: string
   groupAvi: string
+  date: Date
 }
 
 export type CitiesProps = 'new york' | 'miami' | 'los angeles' | 'near me'
