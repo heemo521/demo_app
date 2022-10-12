@@ -612,13 +612,6 @@ a:active {
   }
 }
 
-@keyframes onHoverAnimation {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-  }
-}
 @keyframes onSelectAnimation {
   0% {
     border: 1px solid $primary;
