@@ -413,7 +413,7 @@ body {
 }
 
 .visible {
-  animation: removeBlurAnimation 1s;
+  animation: removeBlurAnimation 0.6s;
 }
 
 .EventCard-filter {
@@ -535,6 +535,7 @@ a,
 a:visited,
 a:active {
   text-decoration: none;
+  color: #ffcc00;
 }
 
 /************************************************************************/

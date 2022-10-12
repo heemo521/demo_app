@@ -12,7 +12,7 @@ const ExploreEventsItem: FunctionComponent<{eventCard: Events}> = ({eventCard}) 
 
   const [lazyImage, setLazyImage] = useState<string>('lazy-img')
 
-  const isVisible = useOnScreen<HTMLDivElement>(EventCardRef, 0.15)
+  const isVisible = useOnScreen<HTMLDivElement>(EventCardRef, 0.1)
 
   const groupImage = getLazyUrl(
     'https://res.cloudinary.com/djftxayyc/image/upload/c_scale,w_100/v1665257399/',
@@ -25,27 +25,17 @@ const ExploreEventsItem: FunctionComponent<{eventCard: Events}> = ({eventCard}) 
 
   useEffect(() => {
     let timer: NodeJS.Timeout
-    // After the component mounts and loads the lower quality image, the scheduled timer will start to execute and
-    // assign higher quality images
-    if (lazyImage.length > 0) {
+
+    if (lazyImage === 'lazy-img') {
       timer = setTimeout(() => (EventCardRef.current.style.backgroundImage = `url(${eventCard.flyer})`))
+      if (isVisible) setLazyImage('visible')
     }
-    // clears out this call if the components unmounts
+
     return () => clearTimeout(timer)
-  }, [])
-
-  useEffect(() => {
-    // Removes the blur filter when the image become visible
-    if (lazyImage.length > 0 && isVisible) setLazyImage('')
-
-    return () => {}
   }, [lazyImage, isVisible])
 
   return (
-    <div
-      className={`EventCard ${lazyImage.length > 0 ? lazyImage : 'visible'}`}
-      ref={EventCardRef}
-      style={{backgroundImage: `url(${eventImage})`}}>
+    <div className={`EventCard ${lazyImage}`} ref={EventCardRef} style={{backgroundImage: `url(${eventImage})`}}>
       <div className='EventCard-filter'></div>
       <div className='EventCard-info'>
         <div className='EventCard-date'>
