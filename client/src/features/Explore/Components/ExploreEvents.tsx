@@ -14,9 +14,21 @@ const ExploreEvents: FunctionComponent<{eventList: Events[]; t: string}> = ({eve
     }
   }, [t])
 
+  // Need to order the events by date... (the data should be for the next 7 days)
+  const sortedEvents = eventList.sort((a, b) => {
+    const dateA = new Date(a.startUtc)
+    const dateB = new Date(b.startUtc)
+    if (dateA < dateB) {
+      return -1
+    }
+    if (dateA > dateB) {
+      return 1
+    }
+  })
+
   return (
     <div className='Explore-body-main-results EventCardGrid'>
-      {eventList.map(eventCard => {
+      {sortedEvents.map(eventCard => {
         if ((filterToday && isToday(eventCard.startUtc) === 'TODAY') || !filterToday) {
           return <ExploreEventsCard key={eventCard._id} eventCard={eventCard} />
         }
