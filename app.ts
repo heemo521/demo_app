@@ -11,7 +11,7 @@ app.use(cors())
 app.use(
   '/v1/events',
   (req, res, next) => {
-    console.log('Request incoming')
+    // console.log('Request incoming')
     next()
   },
   router,

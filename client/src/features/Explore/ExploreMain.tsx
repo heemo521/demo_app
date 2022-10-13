@@ -43,7 +43,7 @@ const ExploreMain: FunctionComponent<IExploreMainProps> = props => {
   }, [city, coords])
 
   const getCityEvents = (lat = 0, lng = 0) =>
-    axios(`http://localhost:5000/v1/events/?category=popular&t=${t}&p=${p}&city=${city}&lat=${lat}&lng=${lng}`)
+    axios(`http://localhost:4000/v1/events/?category=popular&t=${t}&p=${p}&city=${city}&lat=${lat}&lng=${lng}`)
       .then(res => {
         const {success, message, data} = res.data
 

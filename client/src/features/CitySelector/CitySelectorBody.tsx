@@ -22,7 +22,7 @@ const CitySelectorBody: FunctionComponent = () => {
 
     // *BONUS* Dynamic city list rendering => this fetch will get the list of cities via reverse geolocation using coordinates in the db
     // Requires tweaking
-    //   axios.get('http://localhost:5000/v1/events/cities').then(res => {
+    //   axios.get('http://localhost:4000/v1/events/cities').then(res => {
     //     setCitiesList(res.data.data.reverse())
     //   })
   }, [])
