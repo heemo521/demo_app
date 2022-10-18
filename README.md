@@ -24,6 +24,5 @@
 ![demoUno](https://i.imgur.com/bsWgCSU.gif)
 https://i.imgur.com/bsWgCSU.gif
 ### Main Explore *** 
-![demoUno](http://i.imgur.com/ctukmpY.gif)
+![demoUno](https://i.imgur.com/ctukmpY.gif)
 https://i.imgur.com/ctukmpY.gif
-
